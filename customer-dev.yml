@@ -43,4 +43,4 @@ demo-cloud-provider:
   ribbon:
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
 env:
-  dev2      
+  dev3      
