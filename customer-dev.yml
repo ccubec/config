@@ -1,0 +1,46 @@
+feign:
+    hystrix:
+      enabled: true
+    httpclient:
+      connection-timeout: 600000
+    client:
+      config:
+        default:
+          requestIntercepors:
+            - com.example.demo.provider.interceptot.TokenRelayInterceptor
+ribbon:
+    ConnectTimeout: 50000 #请求连接的超时时间，默认时间为1秒
+    ReadTimeout: 50000 #请求处理的超时时间
+hystrix:
+  command:
+    default:
+      circuitBreaker:
+        sleepWindowInMilliseconds: 100000
+        forceClosed: true
+      execution:
+        isolation:
+          strategy: SEMAPHORE
+          thread:
+            timeoutInMilliseconds: 60000
+  shareSecurityContext: true
+spring:
+  rabbitmq:
+    host: 192.168.142.131
+    port: 5672
+    username: admin
+    password: admin
+    virtual-host: my_vhost
+    connection-timeout: 15000
+server:
+  port: 1002
+  servlet:
+    context-path: /customer
+jwt:
+  secret: aaabbbcccdddeeefffggghhhiiijjjkkklllmmmnnnooopppqqqrrrsssttt
+  # 有效期，单位秒，默认2周
+  expire-time-in-second: 1209600
+demo-cloud-provider:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+env:
+  dev1        
